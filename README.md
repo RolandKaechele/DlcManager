@@ -3,7 +3,6 @@
 Runtime DLC gating, pack discovery, and ownership management for Unity 2022.3+.
 Supports JSON pack definitions, PlayerPrefs-backed ownership, an optional **MapLoaderFramework** bridge, and an optional **SaveManager** bridge.
 
----
 
 ## Features
 
@@ -17,7 +16,6 @@ Supports JSON pack definitions, PlayerPrefs-backed ownership, an optional **MapL
 - **LocalizationManager Bridge** — resolve localized pack titles and descriptions via `titleLocalizationKey` / `descriptionLocalizationKey` fields (`DLCMANAGER_LM`)
 - **Custom Inspector** — live pack table with Unlock/Revoke buttons during Play Mode
 
----
 
 ## Installation
 
@@ -25,7 +23,6 @@ Supports JSON pack definitions, PlayerPrefs-backed ownership, an optional **MapL
 2. Click **+** › *Add package from Git URL* and enter the repository URL.
 3. The `postinstall.js` script will create `Assets/DlcPacks/`, `Assets/Resources/DlcPacks/`, and `Assets/Scripts/` automatically.
 
----
 
 ## Folder Structure
 
@@ -47,7 +44,6 @@ DlcManager/
   README.md
 ```
 
----
 
 ## Quick Start
 
@@ -95,7 +91,7 @@ public class IAPHandler : MonoBehaviour
 Attach `DlcGate` to any `GameObject`:
 
 | Field | Description |
-|---|---|
+| ----- | ----------- |
 | Required Pack Id | Pack that must be owned |
 | Disable If Not Owned | Disable this GameObject when the pack is not owned |
 | On Gated | UnityEvent fired when pack is not owned |
@@ -106,12 +102,11 @@ if (dlcManager.IsChapterAccessible(12))
     LoadChapter12();
 ```
 
----
 
 ## DlcPackData JSON Fields
 
 | Field | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `id` | string | Unique pack identifier |
 | `title` | string | Display title |
 | `description` | string | Short description |
@@ -124,25 +119,23 @@ if (dlcManager.IsChapterAccessible(12))
 | `itemIds` | string[] | Item IDs granted by this pack |
 | `cutsceneIds` | string[] | Cutscene IDs included in this pack |
 
----
 
 ## JSON File Locations
 
 | Source | Path | Notes |
-|---|---|---|
+| --- | --- | --- |
 | Resources | `Assets/Resources/DlcPacks/*.json` | Bundled with the game |
 | Persistent | `Application.persistentDataPath/DlcPacks/*.json` | Downloaded / side-loaded |
 
 Toggle `Load From Persistent Data Path` in the inspector to enable persistent-path loading.
 
----
 
 ## Runtime API
 
 ### DlcManager
 
 | Member | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Unlock(packId)` | void | Marks a pack as owned; fires `OnPackUnlocked` |
 | `Revoke(packId)` | void | Removes ownership; fires `OnPackRevoked` |
 | `IsOwned(packId)` | bool | Returns true if the pack is owned |
@@ -159,12 +152,11 @@ Toggle `Load From Persistent Data Path` in the inspector to enable persistent-pa
 ### DlcGate
 
 | Member | Description |
-|---|---|
+| --- | --- |
 | `IsAccessible()` | Returns true if the required pack is owned |
 | `Evaluate()` | Re-evaluates and applies `disableIfNotOwned` logic |
 | `OnGated` | `Action<string>` callback fired with packId when not owned |
 
----
 
 ## MapLoaderFramework Integration
 
@@ -180,14 +172,13 @@ bridge.OnDlcGatedMap += (contentId, packId) =>
 ```
 
 | Inspector Field | Default | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Reload On Mods Changed` | `true` | Re-register DLC pack definitions from enabled mod `dlcpacks/` subfolders when mods change |
 
-Mod DLC JSON files are loaded from each mod’s `dlcpacks/` subfolder (e.g. `Mods/my_mod/dlcpacks/vip_pack.json`). Declare them in `mod_manifest.json` under `dlc_pack_files`.
+Mod DLC JSON files are loaded from each mod's `dlcpacks/` subfolder (e.g. `Mods/my_mod/dlcpacks/vip_pack.json`). Declare them in `mod_manifest.json` under `dlc_pack_files`.
 
 > **Note:** The bridge is informational only. To block players from accessing gated content, use `DlcGate` components or guard checks with `IsMapAccessible` / `IsChapterAccessible`.
 
----
 
 ## SaveManager Integration
 
@@ -196,7 +187,7 @@ Mod DLC JSON files are loaded from each mod’s `dlcpacks/` subfolder (e.g. `Mod
 Attach `SaveDlcBridge` alongside `DlcManager` and `SaveManager`. Ownership state will be serialised into the active save slot in addition to PlayerPrefs.
 
 | Method | Description |
-|---|---|
+| --- | --- |
 | `SaveOwnership()` | Write all owned pack ids to the current save slot |
 | `LoadOwnership()` | Read and restore owned pack ids from the current save slot |
 
@@ -231,42 +222,38 @@ string title2 = bridge.GetTitle(data);
 ```
 
 | Method | Description |
-|---|---|
+| --- | --- |
 | `GetTitle(string packId)` | Localized title for the pack, or raw `title` as fallback |
 | `GetTitle(DlcPackData data)` | Same, given a `DlcPackData` object |
 | `GetDescription(string packId)` | Localized description, or raw `description` as fallback |
 | `GetDescription(DlcPackData data)` | Same, given a `DlcPackData` object |
 
----
 
 ## Integration Defines Summary
 
 | Define | Bridge | Description |
-|---|---|---|
+| --- | --- | --- |
 | `DLCMANAGER_MLF` | `MapLoaderDlcBridge` | Informational event when gated content is loaded; mod `dlcpacks/` reload support |
 | `DLCMANAGER_SM` | `SaveDlcBridge` | Persist DLC ownership inside SaveManager save slot |
 | `DLCMANAGER_LM` | `LocalizationDlcBridge` | Localized title/description lookup via LocalizationManager |
 
 Set defines under **Edit › Project Settings › Player › Scripting Define Symbols**.
 
----
 
 ## Dependencies
 
 | Package | Required | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | Unity 2022.3+ | ✓ | Engine |
 | MapLoaderFramework | Optional | `DLCMANAGER_MLF` bridge |
 | SaveManager | Optional | `DLCMANAGER_SM` bridge |
 | LocalizationManager | Optional | `DLCMANAGER_LM` bridge |
 
----
 
 ## Repository
 
 Standalone Git repository. Install via Unity Package Manager using the Git URL.
 
----
 
 ## License
 
