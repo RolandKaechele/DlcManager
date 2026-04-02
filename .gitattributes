@@ -1,0 +1,30 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Unity YAML
+*.unity    linguist-language=YAML
+*.prefab   linguist-language=YAML
+*.asset    linguist-language=YAML
+*.meta     linguist-language=YAML
+
+# Force text
+*.cs       text eol=lf
+*.json     text eol=lf
+*.md       text eol=lf
+*.js       text eol=lf
+*.shader   text eol=lf
+*.cginc    text eol=lf
+
+# Force binary
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.psd      binary
+*.pdf      binary
+*.mp3      binary
+*.ogg      binary
+*.wav      binary
+*.fbx      binary
+*.obj      binary
+*.dll      binary
