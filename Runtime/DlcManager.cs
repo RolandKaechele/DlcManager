@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 
 namespace DlcManager.Runtime
 {
@@ -24,7 +27,11 @@ namespace DlcManager.Runtime
     /// </summary>
     [AddComponentMenu("DlcManager/DLC Manager")]
     [DisallowMultipleComponent]
+#if ODIN_INSPECTOR
+    public class DlcManager : SerializedMonoBehaviour
+#else
     public class DlcManager : MonoBehaviour
+#endif
     {
         // ─── Constants ───────────────────────────────────────────────────────────
         private const string PrefKeyPrefix = "DLC_Owned_";
@@ -34,6 +41,9 @@ namespace DlcManager.Runtime
         [SerializeField] private bool loadFromPersistentDataPath = true;
 
         [Header("Loaded packs (read-only, set at runtime)")]
+#if ODIN_INSPECTOR
+        [ReadOnly]
+#endif
         [SerializeField] private List<string> loadedPackIds = new List<string>();
 
         // ─── Events ──────────────────────────────────────────────────────────────

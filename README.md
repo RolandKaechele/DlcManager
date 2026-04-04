@@ -15,6 +15,7 @@ Supports JSON pack definitions, PlayerPrefs-backed ownership, an optional **MapL
 - **SaveManager Bridge** — persists ownership state inside the current save slot via `SaveManager.SetCustom`
 - **LocalizationManager Bridge** — resolve localized pack titles and descriptions via `titleLocalizationKey` / `descriptionLocalizationKey` fields (`DLCMANAGER_LM`)
 - **Custom Inspector** — live pack table with Unlock/Revoke buttons during Play Mode
+- **Odin Inspector integration** — `SerializedMonoBehaviour` base for full Inspector serialization of complex types; runtime-display fields marked `[ReadOnly]` in Play Mode (activated via `ODIN_INSPECTOR`)
 
 
 ## Installation
@@ -248,6 +249,7 @@ Set defines under **Edit › Project Settings › Player › Scripting Define Sy
 | MapLoaderFramework | Optional | `DLCMANAGER_MLF` bridge |
 | SaveManager | Optional | `DLCMANAGER_SM` bridge |
 | LocalizationManager | Optional | `DLCMANAGER_LM` bridge |
+| Odin Inspector | Optional | Requires `ODIN_INSPECTOR` define |
 
 
 ## Repository
