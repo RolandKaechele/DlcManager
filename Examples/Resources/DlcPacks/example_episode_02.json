@@ -1,13 +1,23 @@
 {
-  "id": "pack_episode_02",
-  "title": "Episode 2 — Toedlicher Nebel",
-  "description": "Das zweite Kapitel der Jan-Tenner-Abenteuer.",
-  "titleLocalizationKey": "dlc.ep02.title",
-  "descriptionLocalizationKey": "dlc.ep02.desc",
-  "iconResource": "DLC/Episode02Icon",
-  "version": "1.0.0",
-  "mapIds": ["chapter_02_nebel", "chapter_02_labor"],
-  "chapterIds": [2],
-  "itemIds": ["schutzmaske_alpha"],
-  "cutsceneIds": ["ep02_intro", "ep02_ending"]
+    "id":  "pack_episode_02",
+    "title":  "Episode 2 — Toedlicher Nebel",
+    "description":  "Das zweite Kapitel der Jan-Tenner-Abenteuer.",
+    "titleLocalizationKey":  "dlc.ep02.title",
+    "descriptionLocalizationKey":  "dlc.ep02.desc",
+    "iconResource":  "DLC/Episode02Icon",
+    "version":  "1.0.0",
+    "mapIds":  [
+                   "chapter_02_nebel",
+                   "chapter_02_labor"
+               ],
+    "chapterIds":  [
+                       2
+                   ],
+    "itemIds":  [
+                    "schutzmaske_alpha"
+                ],
+    "cutsceneIds":  [
+                        "ep02_intro",
+                        "ep02_ending"
+                    ]
 }

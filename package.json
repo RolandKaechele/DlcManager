@@ -1,18 +1,20 @@
 {
-  "name": "com.rolandkaechele.dlcmanager",
-  "version": "1.0.0",
-  "displayName": "DLC Manager",
-  "description": "Runtime DLC gating, pack discovery, and ownership management for Unity. Supports JSON pack definitions, PlayerPrefs persistence, optional MapLoaderFramework integration, and optional SaveManager integration.",
-  "unity": "2022.3",
-  "author": {
-    "name": "Roland Kaechele"
-  },
-  "keywords": [
-    "dlc",
-    "content",
-    "unlock",
-    "gating",
-    "maploader"
-  ],
-  "dependencies": {}
+    "name":  "com.rolandkaechele.dlcmanager",
+    "version":  "1.0.0",
+    "displayName":  "DLC Manager",
+    "description":  "Runtime DLC gating, pack discovery, and ownership management for Unity. Supports JSON pack definitions, PlayerPrefs persistence, optional MapLoaderFramework integration, and optional SaveManager integration.",
+    "unity":  "2022.3",
+    "author":  {
+                   "name":  "Roland Kaechele"
+               },
+    "keywords":  [
+                     "dlc",
+                     "content",
+                     "unlock",
+                     "gating",
+                     "maploader"
+                 ],
+    "dependencies":  {
+
+                     }
 }
