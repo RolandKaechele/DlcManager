@@ -49,7 +49,7 @@ namespace DlcManager.Editor
             EditorGUILayout.EndHorizontal();
 
             _packsScroll = EditorGUILayout.BeginScrollView(_packsScroll, GUILayout.MaxHeight(180));
-            foreach (var pack in packs)
+            foreach (var pack in packs.Values)
             {
                 bool owned = mgr.IsOwned(pack.id);
                 EditorGUILayout.BeginHorizontal();
