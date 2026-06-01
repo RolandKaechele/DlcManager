@@ -1,8 +1,9 @@
-﻿{
+{
     "name": "DlcManager.Editor",
     "rootNamespace": "DlcManager.Editor",
     "references": [
-        "DlcManager.Runtime"
+        "DlcManager.Runtime",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
